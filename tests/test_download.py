@@ -89,7 +89,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from io import StringIO
 import json
-from fbi3 import get_data_from_url, output_print, get_data_from_json
+from main import get_data_from_url, output_print, get_data_from_json
 
 # Mock response data from FBI API
 Mock_Response = {
@@ -103,7 +103,7 @@ Mock_Response = {
 }
 
 # Test for downloading non-empty data from a URL
-@patch('fbi3.requests.get')  # Mock the requests.get method in fbi3 module
+@patch('main.requests.get')  # Mock the requests.get method in main module
 def test_download_non_empty_data(mock_get):
     # Mocking the API response
     mock_response = MagicMock()
@@ -119,7 +119,7 @@ def test_download_non_empty_data(mock_get):
     assert len(response['items']) > 0
 
 # Test for extracting the title field from the FBI API
-@patch('fbi3.requests.get')
+@patch('main.requests.get')
 def test_extract_title(mock_get):
     # Mocking the API response
     mock_response = MagicMock()
@@ -136,7 +136,7 @@ def test_extract_title(mock_get):
         assert isinstance(title, str)
 
 # Test for extracting the subjects field from the FBI API
-@patch('fbi3.requests.get')
+@patch('main.requests.get')
 def test_extract_subjects(mock_get):
     # Mocking the API response
     mock_response = MagicMock()
@@ -154,7 +154,7 @@ def test_extract_subjects(mock_get):
         assert ','.join(subjects) == 'Subject1,Subject2'
 
 # Test for extracting the field_offices field from the FBI API
-@patch('fbi3.requests.get')
+@patch('main.requests.get')
 def test_extract_field_offices(mock_get):
     # Mocking the API response
     mock_response = MagicMock()
@@ -172,7 +172,7 @@ def test_extract_field_offices(mock_get):
         assert ','.join(field_offices) == 'Office1,Office2'
 
 # Test for printing the full thorn-separated file
-@patch('fbi3.requests.get')
+@patch('main.requests.get')
 def test_print_thorn_separated(mock_get):
     # Mocking the API response
     mock_response = MagicMock()
