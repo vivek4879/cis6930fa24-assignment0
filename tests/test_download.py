@@ -2,17 +2,8 @@ test_data = '{"items": [{"title": "vivek a him", "subjects": ["ads", "dbms", "mi
 import json
 from main import get_data_from_url, extract_title, extract_field_offices, extract_subjects
 from unittest.mock import MagicMock
-# Implement testcases for functionality
+
 # Downloading non-empty data from a URL
-# def test_Downloading_non_empty_data():
-url = 'https://api.fbi.gov/wanted/v1/list'
-#     my_data = get_data_from_url(url, 3)
-#     assert my_data is not None
-# 
-# 
-# 
-# 
-# 
 
 def test_Downloading_non_empty_data(mocker):
     #response = json.loads(test_data)
@@ -21,7 +12,6 @@ def test_Downloading_non_empty_data(mocker):
     mock_response.json.return_value = test_data
     url = 'https://api.fbi.gov/wanted/v1/list'
     mocker.patch("requests.get", return_value = mock_response)
-
     result = get_data_from_url(url, 2)
     assert result == test_data
 
