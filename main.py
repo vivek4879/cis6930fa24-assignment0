@@ -15,22 +15,32 @@ def get_data_from_json(filepath):
         data = json.load(f)
     return data
 
+def extract_title(record):
+    title = record.get('title', ' ')
+    return title
+
+def extract_subjects(record):
+    subjects = record.get('subjects', [' '])
+    if subjects:
+        subjects = ','.join(subjects)
+    else:
+        subjects = ''
+    return subjects
+
+def extract_field_offices(record):
+    field_offices = record.get('field_offices', [' '])
+    if field_offices:
+        field_offices = ','.join(field_offices)
+    else:
+        field_offices=''
+    return field_offices
+
 def output_print(response):
     data = response
     for record in data['items']:
-        title = record.get('title', ' ')
-        subjects = record.get('subjects', [' '])
-        if subjects:
-            subjects = ','.join(subjects)
-        else:
-            subjects = ''
-
-        field_offices = record.get('field_offices', [' '])
-        if field_offices:
-            field_offices = ','.join(field_offices)
-        else:
-            field_offices=''
-        
+        title = extract_title(record)
+        subjects = extract_subjects(record)
+        field_offices = extract_field_offices(record)
         print(f'{title}þ{subjects}þ{field_offices}')
 
 def main(page = None, thefile = None):
