@@ -33,7 +33,6 @@ def output_print(response):
         
         print(f'{title}þ{subjects}þ{field_offices}')
 
-
 def main(page = None, thefile = None):
     url = 'https://api.fbi.gov/wanted/v1/list'
     if page is not None:
