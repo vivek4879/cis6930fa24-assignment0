@@ -4,8 +4,8 @@ Name: Vivek Milind Aher
 This Python package is designed to interact with the FBI's Most Wanted API to retrieve information about most wanted individuals. The package provides functionality to either download data from the FBI’s API or load it from a local JSON file, extract relevant information, and then print the results in a specific format. The information extracted includes the title of the wanted person, the subjects (reasons for being wanted), and the field offices involved, all formatted in a thorn-separated output (þ).
 
 #how to Install
-To run this program, you will need Python 3.x and the requests library installed.
-Install Python 3.x from the official Python website.
+To run this program, you will need Python 3.12 and the requests library installed.
+Install Python 3.12 from the official Python website.
 Install the required Python library requests using pip
 Download or clone this package
 Navigate to the directory containing the package
